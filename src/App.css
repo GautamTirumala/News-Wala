@@ -12,6 +12,9 @@
 .nav-item{
   margin:0 3rem;
 }
+.btn-increase-opacity:hover{
+background-color:black;
+}
 .flex{
   display: flex;
   justify-content: space-evenly;
