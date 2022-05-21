@@ -1,109 +1,63 @@
-import React, { Component } from 'react';
-import './App.css';
-import Footer from './Components/Footer';
-import Header from './Components/Header';
-import NewsItem from './Components/NewsItem';
-//import Data from './Components/Data';
+import React from "react";
+import "./App.css";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import NewsItem from "./Components/NewsItem";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+ 
+  
+// } from "react-router-dom";
 
-class App extends Component {
-
-
-
-  constructor() {
-    super();
-    this.state = {
-      articles: [],
-      page: 1,
-      disableNext:false,
-
-    };
-  }
-
-
-
-
-  componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=6f7eb16038f74e96a3a9cb87132b5f14&page=1&pageSize=20`
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ articles: data.articles, totalResults: data.totalResults });
-        console.log(data);
-
-      });
-  }
-
-
-
-  handelPreviousClick = () => {
-    this.setState({ page: this.state.page - 1 })
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=6f7eb16038f74e96a3a9cb87132b5f14&page= ${this.state.page - 1}&pageSize=20`
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ articles: data.articles })
-        console.log(this.state.page);
-      });
-  }
-
-
-
-  handelNextClick = () => {
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
-      
-    }
-    else {
-      this.setState({ page: this.state.page + 1 })
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=6f7eb16038f74e96a3a9cb87132b5f14&page= ${this.state.page + 1}&pageSize=20`
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          this.setState({ articles: data.articles });
-        });
-    }
-  }
-
-
-
-
-
-  render() {
-    let { title, description, imageUrl, contentUrl } = this.props;
-
-
-
-
+function App() {
+ 
     return (
-
       <div>
+      
         <Header />
-        <div className="flex">
-          {this.state.articles.map((articles, index) => {
-            title = articles.title;
-            description = articles.description;
-            imageUrl = articles.urlToImage ? articles.urlToImage : "https://i.redd.it/v1fvin01ynv51.jpg";
-            contentUrl = articles.url;
-            return (
+        <h1 className='flex'>News</h1>
+        <NewsItem pageSize='8' category='general' country='in'/>
 
-              <NewsItem
-                key={index}
-                title={title}
-                description={description}
-                img={imageUrl}
-                url={contentUrl}
-              />
+        {/* <NewsItem pageSize='8' category='business' country='in'/> */}
 
-            );
-          })}
-        </div>
-        <div className='container d-flex justify-content-between my-3'>
-          <button disabled={this.state.page <= 1} type="button" className="btn btn-secondary hover" onClick={this.handelPreviousClick}> &larr; Previous</button>
-          <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 20)} type="button" className="btn btn-secondary hover" onClick={this.handelNextClick}>Next &rarr;</button>
-        </div>
+       
+        {/* <Router>
+        <Routes>
+        
+          <Route path="/home">
+        <NewsItem pageSize='8' category='general' country='in'/>
+          </Route>
+          <Route path="/Sports">
+        <NewsItem pageSize='8' category='sports' country='in'/>
+            
+          </Route>
+          <Route path="/Technology">
+        <NewsItem pageSize='8' category='technology' country='in'/>
+            
+          </Route>
+          <Route path="/Education">
+        <NewsItem pageSize='8' category='education' country='in'/>
+            
+          </Route>
+          <Route path="/Entertainment">
+        <NewsItem pageSize='8' category='entertainment' country='in'/>
+            
+          </Route>
+          <Route path="/Business">
+        <NewsItem pageSize='8' category='Business' country='in'/>
+          
+          </Route>
+          <Route path="/Health">
+        <NewsItem pageSize='8' category='Health' country='in'/>
+          
+          </Route>
+          </Routes>
+        </Router> */}
         <Footer />
       </div>
     );
   }
-}
 
 export default App;
