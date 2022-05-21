@@ -14,13 +14,22 @@ export default class Header extends Component {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href={this.google}>Home</a>
+                  <a className="nav-link   hover-text"  href={this.google}>Top-Headlines</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href={this.google}>Features</a>
+                  <a className="nav-link  hover-text" href={this.google}>Sports</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href={this.google}>Pricing</a>
+                  <a className="nav-link hover-text" href={this.google}>Tech</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link  hover-text"  href={this.google}>Education</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link hover-text" href={this.google}>Crypto</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link hover-text" href={this.google}>Business</a>
                 </li>
 
               </ul>
