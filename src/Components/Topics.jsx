@@ -1,16 +1,14 @@
 import React from 'react';
-// import {
-//    Link,
-    
-//   } from "react-router-dom";
+import {Link } from 'react-router-dom'
 
 const Topics = (props) => {
     return (
         <div>
             <li className="nav-item">
-           
-                  <a  className="nav-link hover-text" href={`/${props.category}`} >{props.category}</a>
-                  
+          
+                  <Link className="nav-link hover-text" to={props.category} >{props.category}</Link>
+            
+            
             </li>
         </div>
     );

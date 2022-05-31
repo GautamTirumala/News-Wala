@@ -3,59 +3,29 @@ import "./App.css";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import NewsItem from "./Components/NewsItem";
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
- 
-  
-// } from "react-router-dom";
+import { BrowserRouter , Routes , Route} from "react-router-dom";
+
 
 function App() {
  
     return (
       <div>
-      
+      <BrowserRouter>
         <Header />
-        <h1 className='flex'>News</h1>
-        <NewsItem pageSize='8' category='general' country='in'/>
-
-        {/* <NewsItem pageSize='8' category='business' country='in'/> */}
-
-       
-        {/* <Router>
+        <h1 className='flex mt-2'>News</h1>
         <Routes>
-        
-          <Route path="/home">
-        <NewsItem pageSize='8' category='general' country='in'/>
-          </Route>
-          <Route path="/Sports">
-        <NewsItem pageSize='8' category='sports' country='in'/>
-            
-          </Route>
-          <Route path="/Technology">
-        <NewsItem pageSize='8' category='technology' country='in'/>
-            
-          </Route>
-          <Route path="/Education">
-        <NewsItem pageSize='8' category='education' country='in'/>
-            
-          </Route>
-          <Route path="/Entertainment">
-        <NewsItem pageSize='8' category='entertainment' country='in'/>
-            
-          </Route>
-          <Route path="/Business">
-        <NewsItem pageSize='8' category='Business' country='in'/>
-          
-          </Route>
-          <Route path="/Health">
-        <NewsItem pageSize='8' category='Health' country='in'/>
-          
-          </Route>
-          </Routes>
-        </Router> */}
+        <Route path='/' element={<NewsItem key='general' pageSize='8' category='general' country='in'/>}/>
+           <Route  path='Sports' element={<NewsItem key='Sports' pageSize='8' category='Sports' country='in'/>}/>
+           <Route  path='Science' element={<NewsItem key='Science' pageSize='8' category='Science' country='in'/>}/>
+           <Route  path='Technology' element={<NewsItem key='Technology' pageSize='8' category='Technology' country='in'/>}/>
+           <Route  path='Entertainment' element={<NewsItem key='Entertainment' pageSize='8' category='Entertainment' country='in'/>}/>
+           <Route  path='Business' element={<NewsItem key='Business' pageSize='8' category='Business' country='in'/>}/>
+           <Route  path='Health' element={<NewsItem key='Health' pageSize='8' category='Health' country='in'/>}/>
+     
+
+        </Routes>
         <Footer />
+      </BrowserRouter>
       </div>
     );
   }
